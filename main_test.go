@@ -140,9 +140,22 @@ func BenchmarkDiagonalLinking(b *testing.B) {
 	for _, v := range table {
 		field := InitRows(v.input)
 		PrepareColumns(field, v.input)
-		b.Run(fmt.Sprintf("init_size %d ", v.input), func(b *testing.B) {
+		b.Run(fmt.Sprintf("init_size %d ", v.input*v.input), func(b *testing.B) {
 			for i := 0; i < b.N; i++ {
 				DiagonalLinking(field)
+			}
+		})
+	}
+}
+
+func BenchmarkShuffle(b *testing.B) {
+	for _, v := range table {
+		field := InitRows(v.input)
+		PrepareColumns(field, v.input)
+		DiagonalLinking(field)
+		b.Run(fmt.Sprintf("init_size %d ", v.input*v.input), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				Shuffle(field)
 			}
 		})
 	}
