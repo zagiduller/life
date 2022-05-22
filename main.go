@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"io"
 	"log"
@@ -18,7 +19,11 @@ import (
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	gameField := CreateGameField(25, 70)
+	row := flag.Int("row", 15, "rows count")
+	col := flag.Int("col", 15, "columns count")
+	flag.Parse()
+
+	gameField := CreateGameField(*row, *col)
 	Shuffle(gameField)
 
 	stdout := bufio.NewWriter(os.Stdout)
