@@ -7,4 +7,4 @@ The first task was to study data structures and prepare for the upcoming intervi
 Fundamental goal: if I confirm the effectiveness of my guesses as an example implementation, then this conclusion is suitable for solving problems where each "object" knows its "neighbors".
 
 My project differs from others in that it is based on linked lists.
-And also, it gives users the opportunity to practice creating linked lists and writing tests and benchmarks.
+For users, this gives an example implementation, and for me, it gives me a chance to practice creating linked lists and writing benchmarks.
